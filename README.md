@@ -10,10 +10,39 @@ This web application allows users to create, edit, and collaborate on documents 
 ![UI_2](public/UI_2.png)
 
 ## Key Features
-- **Real-time Collaboration**: Multiple users can edit documents simultaneously.
-- **Document Templates**: Users can start with pre-defined templates or create new documents from scratch.
-- **User Authentication**: Secure login and user management.
-- **Responsive Design**: Optimized for both mobile and desktop devices.
+
+1. **Real-time Collaboration**  
+   - Multiple users can edit documents simultaneously with minimal latency.  
+   - Includes live cursor tracking, conflict resolution, and inline comments.
+
+2. **Document Templates**  
+   - Start from a blank page or choose from professionally designed templates.  
+   - Easily customize templates to fit your project or branding needs.
+
+3. **Built-in Chat & Video Calls**  
+   - Integrated chat panel for instant communication within each document.  
+   - Optional video conferencing (e.g., Jitsi) to conduct live discussions or screen sharing.
+
+4. **Version Control**  
+   - Automatic or manual version snapshots for each document.  
+   - Easily revert to previous versions or compare changes over time.
+
+5. **User Authentication**  
+   - Secure sign-up and login system with role-based permissions.  
+   - OAuth support (e.g., Google, GitHub) for convenient single sign-on.
+
+6. **Responsive Design**  
+   - Optimized layouts for both desktop and mobile devices.  
+   - Ensures a consistent, user-friendly experience across screens.
+
+7. **Access Control & Sharing**  
+   - Invite collaborators via email or shareable links.  
+   - Set permissions to view, comment, or edit.
+
+8. **Scalable & Extensible**  
+   - Built with a modular architecture for easy integration of new features.  
+   - Supports additional plugins (e.g., AI grammar suggestions) and third-party services.
+
 
 ## Installation
 

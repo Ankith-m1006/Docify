@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 221 83% 53%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 210 40% 93%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 221 83% 53%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 215 16% 47%;
+    --sidebar-primary: 221 83% 53%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 40% 96%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 214 32% 91%;
+    --sidebar-ring: 221 83% 53%;
+  }
+
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 47% 11%;
+
+    --secondary: 217 33% 18%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 18%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 217 33% 18%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 18%;
+    --input: 217 33% 18%;
+    --ring: 224 76% 48%;
+    
+    --sidebar-background: 217 33% 18%;
+    --sidebar-foreground: 215 20% 65%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 215 25% 27%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217 33% 25%;
+    --sidebar-ring: 224 76% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+/* Editor Styles */
+@layer components {
+  .editor-container {
+    @apply w-full h-full flex flex-col overflow-hidden bg-white;
+  }
+  
+  .editor-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    min-height: 100%;
+    background-color: #f0f2f5;
+    overflow-y: auto;
+  }
+  
+  .page {
+    background-color: white;
+    width: 21cm;
+    min-height: 29.7cm;
+    height: 29.7cm;
+    padding: 2.5cm 2cm;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 2rem;
+  }
+  
+  .page-content {
+    height: calc(29.7cm - 5cm);
+    max-height: calc(29.7cm - 5cm);
+    overflow: hidden;
+    word-wrap: break-word;
+    line-height: 1.5;
+    @apply focus:outline-none;
+  }
+  
+  .page-ruler-horizontal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1.5rem;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    align-items: center;
+    padding: 0 2cm;
+  }
+  
+  .page-ruler-vertical {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 1.5rem;
+    background-color: #f8f9fa;
+    border-right: 1px solid #e5e7eb;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 0;
+  }
+  
+  .ruler-tick {
+    position: absolute;
+    font-size: 0.6rem;
+    color: #9ca3af;
+  }
+  
+  .horizontal-tick {
+    top: 0.25rem;
+  }
+  
+  .vertical-tick {
+    left: 0.25rem;
+  }
+  
+  .page-number {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.75rem;
+    color: #9ca3af;
+  }
+  
+  .editor-content {
+    @apply flex-1 overflow-auto px-16 py-12 focus:outline-none;
+  }
+  
+  .editor-content p {
+    @apply my-2;
+  }
+  
+  .toolbar-button {
+    @apply h-9 px-2.5 rounded-md text-muted-foreground hover:bg-secondary hover:text-foreground focus:outline-none focus:ring-1 focus:ring-primary/20 transition-all duration-200 ease-apple;
+  }
+  
+  .toolbar-button.active {
+    @apply bg-secondary text-foreground;
+  }
+  
+  .toolbar-divider {
+    @apply h-5 w-px mx-1 bg-border;
+  }
+  
+  .format-dropdown {
+    @apply h-9 px-3 rounded-md text-foreground hover:bg-secondary focus:outline-none focus:ring-1 focus:ring-primary/20 transition-all duration-200 ease-apple flex items-center gap-1;
+  }
+  
+  .comment-bubble {
+    @apply absolute right-6 bg-white shadow-float rounded-full p-2 opacity-0 group-hover:opacity-100 transition-all duration-300 cursor-pointer;
+  }
+  
+  .comment-panel {
+    @apply fixed right-0 top-0 h-full bg-white w-[350px] shadow-lg z-10 transition-transform duration-300 ease-apple transform translate-x-full;
+  }
+  
+  .comment-panel.open {
+    @apply translate-x-0;
+  }
+  
+  .chat-panel {
+    @apply fixed right-0 top-0 h-full bg-white w-[350px] shadow-lg z-10 transition-transform duration-300 ease-apple transform translate-x-full;
+  }
+  
+  .chat-panel.open {
+    @apply translate-x-0;
+  }
+  
+  .user-avatar {
+    @apply relative inline-flex items-center justify-center w-9 h-9 overflow-hidden rounded-full bg-editor-lightBlue text-editor-blue font-medium text-sm transition-all duration-300;
+  }
+  
+  .user-presence {
+    @apply flex items-center gap-2 px-3 py-1.5 rounded-full bg-white shadow-float text-sm font-medium transition-all duration-300 ease-apple animate-slide-in;
+  }
+  
+  .user-presence-dot {
+    @apply w-2 h-2 rounded-full bg-editor-green animate-pulse-light;
+  }
+  
+  .document-card {
+    @apply relative flex flex-col rounded-lg border border-border overflow-hidden transition-all duration-300 ease-apple hover:shadow-float-hover cursor-pointer bg-card;
+  }
+  
+  .document-card-preview {
+    @apply h-40 bg-white border-b border-border p-4 overflow-hidden;
+  }
+  
+  .document-card-footer {
+    @apply p-3 flex items-center justify-between;
+  }
+  
+  .page-transitions-enter {
+    @apply opacity-0;
+  }
+  
+  .page-transitions-enter-active {
+    @apply opacity-100 transition-opacity duration-300 ease-apple;
+  }
+  
+  .page-transitions-exit {
+    @apply opacity-100;
+  }
+  
+  .page-transitions-exit-active {
+    @apply opacity-0 transition-opacity duration-300 ease-apple;
+  }
+}

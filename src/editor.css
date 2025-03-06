@@ -1,0 +1,113 @@
+/* Editor specific styles */
+.page-break {
+  height: 1px;
+  border-top: 1px dashed #ccc;
+  margin: 2rem 0;
+  position: relative;
+}
+
+.page-break::before {
+  content: "Page Break";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #f0f0f0;
+  padding: 0 10px;
+  font-size: 12px;
+  color: #666;
+}
+
+.dark .page-break::before {
+  background: #333;
+  color: #ccc;
+}
+
+/* Print styles */
+@media print {
+  .page-break {
+    height: 0;
+    page-break-after: always;
+    margin: 0;
+    border-top: none;
+  }
+
+  .page-break::before {
+    display: none;
+  }
+}
+
+/* Blockquote styles */
+blockquote {
+  border-left: 4px solid #e5e7eb;
+  padding-left: 1rem;
+  font-style: italic;
+  color: #6b7280;
+}
+
+.dark blockquote {
+  border-left-color: #4b5563;
+  color: #9ca3af;
+}
+
+/* Code block styles */
+pre {
+  background-color: #f3f4f6;
+  padding: 1rem;
+  border-radius: 0.375rem;
+  font-family: monospace;
+  overflow-x: auto;
+}
+
+.dark pre {
+  background-color: #1f2937;
+}
+
+/* Table styles */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+table th,
+table td {
+  border: 1px solid #e5e7eb;
+  padding: 0.5rem;
+}
+
+.dark table th,
+.dark table td {
+  border-color: #4b5563;
+}
+
+table th {
+  background-color: #f9fafb;
+  font-weight: 600;
+}
+
+.dark table th {
+  background-color: #374151;
+}
+
+/* Highlight styles */
+mark {
+  background-color: #fef08a;
+  padding: 0 0.25em;
+  border-radius: 0.125em;
+}
+
+.dark mark {
+  background-color: #854d0e;
+  color: #fef9c3;
+}
+
+/* Selection styles */
+::selection {
+  background-color: rgba(59, 130, 246, 0.2);
+}
+
+.dark ::selection {
+  background-color: rgba(96, 165, 250, 0.3);
+}
+
